@@ -181,10 +181,15 @@ this.$store.dispatch('products/getAllProducts')
 ```
 Vuex总结:
 1、应用层级的状态应该集中到单个 store 对象中，状态对象太复杂的时候可以划分module。
+
 2、提交 mutation 是更改状态的唯一方法。
+
 3、在触发方法上：action的触发是dispatch,mutation的触发是commit；
+
 4、在功能上：state保存的是数据,getters是对state进行二次加工,action的处理函数的功能最终是commit mutation,mutation处理函数的功能最终是改变state
+
 5、在同步异步上：异步逻辑都应该封装到 action 里面,mutation 是同步的，不能出现异步
+
 6、在流程上：
 vue component—-dispatch—->actions—-commit—->mutations—-mutate—->state—-render—->vue component。从而形成闭环。
 
@@ -198,3 +203,8 @@ mapActions、mapMutations则都是用在methods声明里面。
 #### vuex的流程
 
 ![vuex](https://github.com/codprincess/vuex-redux/blob/master/img/2.png)
+
+### 目录
+- [Vue和React的同级比较](#Vue和React的总结)
+    - [Vuex和redux的比较](doc/vuex和redux的比较.md)
+
