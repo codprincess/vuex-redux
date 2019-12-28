@@ -49,6 +49,7 @@ const cart = {
     actions:{
         checkout({commit,state},products){
             const savedCartItems = [...state.items]
+            //Action 提交的是 mutation
             commit('setCheckoutStatus',null)
             commit('setCartItems',{items:[]})
             shop.buyProducts(

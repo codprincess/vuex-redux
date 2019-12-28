@@ -16,6 +16,7 @@
 export default {
   name: 'App',
 
+  
   // computed:{
   //   //方法一获取count
   //   // count(){

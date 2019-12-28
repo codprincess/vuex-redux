@@ -27,7 +27,7 @@ const app = {
     },
 
     actions: {
-        //写异步逻辑和复杂的逻辑
+        //写异步逻辑
         async myIncrement(context, obj) {
             context.commit('INCREMENT', 2);
             const product = [1, 2, 3]

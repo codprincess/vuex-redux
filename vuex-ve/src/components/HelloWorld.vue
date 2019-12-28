@@ -42,6 +42,11 @@ export default {
     
 
   },
+  //方法三
+  // computed:mapState({
+  //   count:state=>state.app.count
+  // }),
+  // computed:mapState(['count']),
   methods:{
     //获取执行方法的方式一
     // increments(){
