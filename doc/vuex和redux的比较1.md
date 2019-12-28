@@ -1,11 +1,12 @@
-### Vuex和redux的比较
-曲曲折折编程之30分钟同级区分vuex和redux,新手上手快
+### Vuex和redux的比较之vuex(1)
+
 ## 什么是vuex
 简而言之就是专门为Vue.js设计的状态管理模式 <br/>
 
 vuex包含5个核心概念:State，Getter，Mutation，Action，Module
 
 平时我们写的简单vue文件中，包含data，template，methods
+### 安装:npm install --save vuex
 
 ### State  --->data 看作 state，驱动应用的数据源，也就是定义的变量
 

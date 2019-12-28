@@ -1,0 +1,12 @@
+/**
+ * create by <714195347@qq.com> 小公主
+ */
+export const ADD_TO_CART = 'ADD_TO_CART'
+
+export const CHECKOUT_REQUEST = 'CHECKOUT_REQUEST'
+
+export const CHECKOUT_SUCCESS = 'CHECKOUT_SUCCESS'
+
+export const CHECKOUT_FAILURE = 'CHECKOUT_FAILURE'
+
+export const RECEIVE_PRODUCTS = 'RECEIVE_PRODUCTS'
