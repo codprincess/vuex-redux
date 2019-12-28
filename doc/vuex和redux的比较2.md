@@ -23,7 +23,42 @@ npm install --save redux react-redux redux-devtools redux-thunk (redux-thunk用�
 state 和 action，并返回新的 state。
 
 
-### Action
+### Action(分为同步操作和异步操作)
+##### 同步action操作
+Action 是把数据从应用,传到 store 的有效载荷。它是 store 数据的唯一来源,是普通的JavaScript对象
+action 内必须使用一个字符串类型的 type 字段来表示将要执行的动作。多数情况下，type 会被定义成字符串常量。比如下面,添加一个action value来表示完成任务的值的变化,具体看todolist(同步,每当 dispatch action 时，state 会被立即更新)的列子
+```js
+    export const changeInputAction = (value)=>({
+        type: CHANGE_INPUT,
+        value
+    })
+```
+##### 异步action操作
+当调用异步api时,发起请求和接收到响应的时候都可能会更改state,此，你需要 dispatch 普通的同步 action。一般情况下，每个 API 请求都需要 dispatch 至少三种 action：
+###### . reducer 请求开始的 action: CHECKOUT_REQUEST
+###### . reducer 请求成功的 action: CHECKOUT_SUCCESS
+###### . reducer 请求开始的 action: CHECKOUT_FAILURE
+具体代码如下
+```js
+const cart = (state=initState,action)=>{
+    switch (action.type) {
+        case CHECKOUT_REQUEST:
+            return initState
+        case CHECKOUT_FAILURE:
+            return action.cart
+        default:
+            return {
+                addedIds: addedIds(state.addedIds, action),
+                quantityById: quantityById(state.quantityById, action)
+            }
+    }
+}
+
+```
+
+
+
+
 
 
 
