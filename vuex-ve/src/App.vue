@@ -48,13 +48,13 @@ export default {
   beforeUpdate(){
       // 数据更新之前
       console.log("beforeUpdate","data:"+this.msg,"el:"+this.$el);
-      //beforeUpdate data:Vue的生命周期1 el:[object HTMLDivElement]
+      //beforeUpdate data:改变msg的值 el:[object HTMLDivElement]
   },
 
   updated(){
       // 数据更新完成之后；
       console.log("updated","data:"+this.msg,"el:"+this.$el);
-      //beforeUpdate data:Vue的生命周期1 el:[object HTMLDivElement]
+      //beforeUpdate data:改变msg的值 el:[object HTMLDivElement]
   },
 
    beforeDestroy(){

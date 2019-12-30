@@ -7,6 +7,8 @@
 
 ### 目录
 - [Vue和React的同级比较](#Vue和React的总结)
+    - [对vue生命周期的理解](doc/对vue的生命周期的理解.md)
+    - [对react生命周期的理解](doc/对react生命周期的理解.md)
     - [Vuex和redux的比较之Vuex](doc/vuex和redux的比较1.md)
     - [Vuex和redux的比较之Redux](doc/vuex和redux的比较2.md)
 

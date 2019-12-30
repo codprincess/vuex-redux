@@ -46,17 +46,17 @@ beforeMount在有了render function的时候才会执行，当执行完render fu
   beforeMount(){
     //挂载前
     console.log("beforeMount","data:"+this.msg,"el:"+this.$el)
-    //beforeMount data:Vue的生命周期 el:undefined
+    //beforeMount data:Vue的生命周期 el:[object HTMLDivElement]
   },
   mounted(){
     //挂载后
     console.log("mounted","data:"+this.msg,"el:"+this.$el)
-    //mounted data:Vue的生命周期 el:[object HTMLDivElement]
+    //mounted data:改变msg的值 el:[object HTMLDivElement]
   },
   beforeUpdate(){
       // 数据更新之前
       console.log("beforeUpdate","data:"+this.msg,"el:"+this.$el);
-      //beforeUpdate data:Vue的生命周期1 el:[object HTMLDivElement]
+      //beforeUpdate data:改变msg的值 el:[object HTMLDivElement]
   },
 
   updated(){
@@ -75,3 +75,22 @@ beforeMount在有了render function的时候才会执行，当执行完render fu
     }
 
 ```
+从console中的结果中,我们看出:
+
+在beforeCreate生命周期执行的时候，data和methods中的数据都还没有初始化。不能在这个阶段使用data中的数据和methods中的方法.
+
+create：data 和 methods都已经被初始化好了，如果要调用 methods 中的方法，或者操作 data 中的数据，最早可以在这个阶段中操作.
+
+beforeMount：执行到这个钩子的时候，在内存中已经编译好了模板了，但是还没有挂载到页面中，此时，页面还是旧的
+
+mounted：执行到这个钩子的时候，就表示Vue实例已经初始化完成了。此时组件脱离了创建阶段，进入到了运行阶段。 如果我们想要通过插件操作页面上的DOM节点，最早可以在和这个阶段中进行
+
+beforeUpdate： 当执行这个钩子时，页面中的显示的数据还是旧的，data中的数据是更新后的， 页面还没有和最新的数据保持同步
+
+updated：页面显示的数据和data中的数据已经保持同步了，都是最新的
+
+beforeDestory：Vue实例从运行阶段进入到了销毁阶段，这个时候上所有的 data 和 methods ， 指令， 过滤器 ……都是处于可用状态。还没有真正被销毁
+
+destroyed： 这个时候上所有的 data 和 methods ， 指令， 过滤器 ……都是处于不可用状态。组件已经被销毁了。
+
+第一次加载页面会触发哪些钩子:beforeCreate， created， beforeMount， mounted
