@@ -1,81 +1,73 @@
 <template>
   <div id="app">
-    <!-- <img src="./assets/logo.png"> -->
-    <!-- <h1>{{count}}</h1>
-    <h4>{{myCount}}</h4>
-    <h5>{{username}}</h5> -->
-    <!-- <button @click="increments">增加</button>
-     <button @click="descrements">减少</button> -->
-        <!-- <li><router-link to="/Products">跳转到商品页面</router-link></li> -->
+     <input type="text" v-model="msg"><br>
+      {{msg}}
+     <hr>
+   
     <router-view/>
   </div>
 </template>
 
 <script>
-// import { mapState,mapMutations ,mapActions,mapGetters} from 'vuex'
 export default {
   name: 'App',
-
-  
-  // computed:{
-  //   //方法一获取count
-  //   // count(){
-  //   //   return this.$store.state.count
-  //   // },
-  //   //方法二辅助函数获取
-  // //  ...mapState(['count','username']),
-  //   //整理集合之后不能用以上的方式获取count或者username的值
-  //   ...mapState({
-  //     count:state=>{
-  //       return state.app.count
-  //     },
-  //     username:state=>{
-  //       return state.user.username
-  //     }
-  //   }),
-  //   ...mapGetters(['myCount'])
-    
-
-  // },
+  // el:"#app",
+  data(){
+    return{
+      msg:'Vue的生命周期'
+    }
+  },
   methods:{
-    //获取执行方法的方式一
-    // increments(){
-    //   this.$store.commit('increment')
-    // },
-    // descrements(){
-    //   this.$store.commit('descrement')
-    // }
+     changeMsg(){
+       this.msg = '改变msg的值'
+     }
+  },
 
-    //方法二
-    //  ...mapMutations(['increment','descrement']),
-    //  increments(){
-    //    this.increment()
-    //  },
-    //  descrements(){
-    //   this.descrement()
-    // }
+  beforeCreate(){
+    //创建之前无法获取相应数据
+    console.log("beforeCreate","data:"+this.msg,"el:"+this.$el)
+    //beforeCreate data:undefined el:undefined
+  },
 
-    //方法三
-    // increments(){
-    //   this.$store.state.count += 1;
-    // },
+  created(){
+    //创建之后
+    console.log("created","data:"+this.msg,"el:"+this.$el);
+    //created data:Vue的生命周期 el:undefined
+  },
 
-    // descrements(){
-    //   this.$store.state.count -= 1;
-    // },
+  beforeMount(){
+    //挂载前
+    console.log("beforeMount","data:"+this.msg,"el:"+this.$el)
+    //beforeMount data:Vue的生命周期 el:undefined
+  },
+  mounted(){
+    //挂载后
+    console.log("mounted","data:"+this.msg,"el:"+this.$el)
+    //mounted data:Vue的生命周期 el:[object HTMLDivElement]
+  },
+  beforeUpdate(){
+      // 数据更新之前
+      console.log("beforeUpdate","data:"+this.msg,"el:"+this.$el);
+      //beforeUpdate data:Vue的生命周期1 el:[object HTMLDivElement]
+  },
 
-    // //获取复杂业务逻辑
-    // ...mapActions(['myIncrement','myDescrement']),
-    // increments(){
-    //   this.myIncrement();
-    // },
+  updated(){
+      // 数据更新完成之后；
+      console.log("updated","data:"+this.msg,"el:"+this.$el);
+      //beforeUpdate data:Vue的生命周期1 el:[object HTMLDivElement]
+  },
 
-    // descrements(){
-    //   this.myDescrement();
-    // }
+   beforeDestroy(){
+        // 销毁之前
+        console.log("beforeDestroy","data:"+this.msg,"el:"+this.$el);
+    },
+    destroyed(){
+        // 销毁之后
+        console.log("destroyed","data:"+this.msg,"el:"+this.$el);
+    }
 
 
-  }
+
 }
 </script>
 
