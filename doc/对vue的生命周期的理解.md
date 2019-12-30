@@ -20,6 +20,7 @@ destroyed(销毁后)
 总的来说就是创建=>挂载=>更新=>销毁
 
 参照官网给的流程图:
+![image](https://github.com/codprincess/vuex-redux/blob/master/img/lifecycle.png)
 
 我们首先需要创建一个Vue实例,也就是在 new Vue ( ) 的对象过程当中，首先执行了init（init是vue组件里面默认去执行的），在init的过程当中首先调用了beforeCreate，然后在injections（注射）和reactivity（反应性）的时候，它会再去调用created。所以在init的时候，事件已经调用了，我们在beforeCreate的时候千万不要去修改data里面赋值的数据，最早也要放在created里面去做（添加一些行为）。
 
