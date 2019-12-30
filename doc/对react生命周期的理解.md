@@ -1,5 +1,6 @@
 ## 对react生命周期的理解
 #### 生命周期的概况图
+![image](https://github.com/codprincess/vuex-redux/blob/master/img/reactLifes.png)
 #### 生命周期的划分
 react的生命周期主要分为三个阶段,初始化阶段(Mounting),运行阶段(Updating),销毁阶段(Unmounting)
 ##### Mounting初始化阶段
