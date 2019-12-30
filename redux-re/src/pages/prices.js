@@ -14,8 +14,12 @@ class Prices extends Component {
                 <button onClick={PayIncrease}>升职加薪</button>
                 <button onClick={PayDecrease}>迟到罚款</button>
                 <div>
-                    <Link to="/counts">跳转</Link>
+                    <Link to="/counts">跳转到计时器</Link>
                 </div>
+                <div>
+                    <Link to="/life">跳转到查看生命周期运行</Link>
+                </div>
+
                
             </div>
            

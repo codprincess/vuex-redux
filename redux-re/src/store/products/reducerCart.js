@@ -6,7 +6,7 @@ const initState = {
     quantityById: {}
 }
 
-const addedIds = (state =  initstate.addedIds,action)=>{
+const addedIds = (state = initState.addedIds,action)=>{
     console.log('cart',state)
     console.log('cartaction',action)
     switch(action.type){
