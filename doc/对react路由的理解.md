@@ -36,11 +36,8 @@ state：与要跳转到的URL对应的状态信息<br/>
 title：title<br/>
 url：要跳转到的URL地址，不能跨域<br/>
 pushState会向浏览器的历史堆栈添加一个url为设定值的记录，并指向当前项<br/>
-
 history.replaceState,与pushState参数，含义相同
-
 区别在于replaceState是替换浏览器历史堆栈的当前历史记录为设定的url
-
 replaceState不会改动浏览器历史堆栈的当前指向
 ```js
     <ul>
@@ -93,4 +90,49 @@ react-router-dom : 构建网页应用，存在DOM对象场景下的核心包
 react-router-native : 适用于构建react-native应用
 react-router-config : 配置静态路由
 react-router-redux : 结合redux来配置路由，已废弃，不推荐使用。
+
+##### 核心api:BrowserRouter、Route、Link、Switch
+
+##### BrowsersRouter
+组件包裹整个App系统后，就是通过html5的history来实现无刷新条件的前端路由。
+##### <Route>(定义匹配规则和渲染规则)
+
+<Route> 组件十分重要，<Route> 做的事情就是匹配相应的location中的地址，匹配成功后渲染对应的组件。下面我们来看<Route>中的属性。
+
+首先来看如何执行匹配，决定<Route>地址匹配的属性：
+
+    path：当location中的url改变后，会与Route中的path属性做匹配，path决定了与路由或者url相关的渲染效果。
+
+    exact: 如果有exact，只有url地址完全与path相同，才会匹配。如果没有exact属性，url的地址不完全相同，也会匹配。(重要!!!!!)
+
+    strict ：与exact不同，strict属性仅仅是对exact属性的一个补充，设置了strict属性后，严格限制了但斜线“／”。
+    <Route strict  path='/home/' component={Home}/> 那么此时严格匹配斜线是否存在，http://localhost:3000/home 将无法匹配到Home组件
+
+    component：该属性接受一个React组件，当url匹配成功，就会渲染该组件
+
+    render：func 该属性接受一个返回React Element的函数，当url匹配成功，渲染覆该返回的元素
+
+    children：与render相似，接受一个返回React Element的函数，但是不同点是，无论url与当前的Route的path匹配与否，children的内容始终会被渲染出来。
+我们一般的用法
+```js
+ <BrowserRouter>
+    <Route path='/' exact component={Prices}></Route>
+    <Route path='/counts' exact component={Counts}></Route>
+    <Route path='/life' exact component={Life}></Route>
+    <Route path='/todolist' exact component={TodoList}></Route>
+</BrowserRouter>
+```
+
+##### <Link>
+<Link> 决定的是如何在页面内改变url，从而与相应的<Route>匹配.
+```js
+//一般用法:
+<Link to='/home'>Home</Link>//to作为字符串
+
+//to作为一个对象,包含以下四个属性
+ <Link to={{pathname:'/home',search:'?sort=name',hash:'#edit',state:{a:1}}}>Home</Link>
+
+```
+
+
 
