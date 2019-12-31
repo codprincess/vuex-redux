@@ -19,6 +19,9 @@ class Prices extends Component {
                 <div>
                     <Link to="/life">跳转到查看生命周期运行</Link>
                 </div>
+                <div>
+                    <Link to="/todolist">跳转到todolist</Link>
+                </div>
 
                
             </div>

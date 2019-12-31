@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// import TodoList from './TodoList'
 import { BrowserRouter, Route } from 'react-router-dom';
 import Counts from '../src/pages/counts'
 import Prices from '../src/pages/prices'
@@ -8,12 +7,8 @@ import * as serviceWorker from './serviceWorker';
 import {Provider} from 'react-redux'
 import store from './store'
 import Life from '../src/pages/life'
+import TodoList from '../src/pages/TodoList'
 
-// const TodoList=(
-//     <Provider store={store}>
-//         <TodoList></TodoList>
-//     </Provider>
-// )
 ReactDOM.render(
     <Provider store={store}>
         {/* <Counts></Counts> */}
@@ -21,6 +16,7 @@ ReactDOM.render(
             <Route path='/' exact component={Prices}></Route>
             <Route path='/counts' exact component={Counts}></Route>
             <Route path='/life' exact component={Life}></Route>
+            <Route path='/todolist' exact component={TodoList}></Route>
         </BrowserRouter>
         {/* <Prices></Prices> */}
      </Provider>,

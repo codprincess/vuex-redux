@@ -5,7 +5,11 @@ import { CHANGE_INPUT, ADD_ITEM, DELETE_ITEM, GET_LIST } from './actionTypes'
 //初始化数据
 const defaultState = {
     inputValue: 'do something',
-    list: []
+    list: [
+        'coding',
+        'sleeping',
+        'eating'
+    ]
 }
 export default (state = defaultState, action) => {
     // console.log('store接收action传给reducer',state,action)
@@ -15,17 +19,20 @@ export default (state = defaultState, action) => {
     //     return newState
     // }
     switch (action.type) {
+       
         case CHANGE_INPUT:
             {
                 let newState = JSON.parse(JSON.stringify(state))
+                //console.log('重新获得的值', newState)
                 newState.inputValue = action.value
                 return newState
             }
         case ADD_ITEM:
             {
                 let newState = JSON.parse(JSON.stringify(state))
+                console.log('重新获得的值', newState)
                 newState.list.push(newState.inputValue)
-                newState.inputValue = ''
+                //newState.inputValue = ''
                 return newState
             }
 

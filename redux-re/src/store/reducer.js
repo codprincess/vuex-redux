@@ -7,6 +7,7 @@ import counter from './counter/reducerCounter'
 import reducerPrice from './prices/reducerPrice'
 import products,* as fromProducts from './products/reducerProducts';
 import cart, * as fromCart from './products/reducerCart'
+
 const reducer = combineReducers({
     reducerTodo,
     counter,
