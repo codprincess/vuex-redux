@@ -131,8 +131,50 @@ react-router-redux : 结合redux来配置路由，已废弃，不推荐使用。
 
 //to作为一个对象,包含以下四个属性
  <Link to={{pathname:'/home',search:'?sort=name',hash:'#edit',state:{a:1}}}>Home</Link>
-
 ```
+
+##### switch
+有<Switch>标签，则其中的<Route>在路径相同的情况下，只匹配第一个，这个可以避免重复匹配；
+无<Switch>标签，则其中的<Route>在路径相同的情况下全都会匹配。更严重的是，还会匹配上级路径的
+
+##### 嵌套路由
+```js
+ <HashRouter>
+    <App></App>
+    <Switch>
+        <Route path="/" render={()=>
+            <Admin>
+                <Switch>
+                    <Route path='/home' component={Home}></Route>
+                    <Route path="/general/buttons" component={Buttons}></Route>
+                    <Route path="/general/Icons" component={Icons}></Route>
+                    <Route path="/general/loadings" component={Loadings}></Route>
+                    <Route path="/general/modals" component={Modals}></Route>
+                    <Route path="/general/notifications" component={Notifications}></Route>
+                    <Route path="/general/tabs" component={TabsR}></Route>
+                    <Route path="/general/carousels" component={Carousels}></Route>
+                    <Route path="/general/editor" component={Editors}></Route>
+                    <Route path="/general/messages" component={Messages}></Route>
+                    <Route path="/general/draggable" component={Drag}></Route>
+                    <Route path="/basictable/BasicTable" component={BasicTable}></Route>
+                    <Route path="/basictable/highTable" component={HighTable}></Route>
+                    <Route path="/form/register" component={Register}></Route>
+                    <Route path="/form/login" component={Logins}></Route>
+                    <Route path="/form/stepForm" component={StepForm}></Route>
+                    <Route path="/form/testForm" component={TestForm}></Route>
+                    <Route path="/user/user" component={User}></Route>
+                    <Route path="/user/user2" component={User2}></Route>
+                    <Route path="/city/city" component={City}></Route>
+                    <Route path="/order/index" component={Order}></Route>
+                    <Route path="/permission/index" component={Permission}></Route>
+                    <Redirect to="/home" />
+                </Switch>
+            </Admin>
+        }></Route>
+    </Switch>
+</HashRouter>
+```
+
 
 
 
