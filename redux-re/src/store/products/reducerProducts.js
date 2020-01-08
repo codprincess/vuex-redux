@@ -6,8 +6,8 @@ import {combineReducers} from 'redux'
 import {RECEIVE_PRODUCTS,ADD_TO_CART} from './ActionTypes'
 
 const products = (state,action)=>{
-    console.log('11111',state)
-    console.log('22222',action)
+    // console.log('11111',state)
+    // console.log('22222',action)
     switch(action.type){
         case ADD_TO_CART:
             return {
