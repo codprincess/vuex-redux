@@ -68,7 +68,7 @@ const router = new VueRouter({
 
 #### vue路由跳转的四种方式(带参数)
 
-1.  router-link
+##### 1.  router-link
 ```js
 
 1.不带参数
@@ -91,6 +91,46 @@ const router = new VueRouter({
 // script 取参  this.$route.query.id
 
 ```
+##### 2.  this.$router.push() (函数里面调用)
+```js
+1. 不带参数
+ this.$router.push('/home')
+this.$router.push({name:'home'})
+this.$router.push({path:'/home'})
+2. query传参 
+ this.$router.push({name:'home',query: {id:'1'}})
+this.$router.push({path:'/home',query: {id:'1'}})
+// html 取参 $route.query.id
+// script 取参 this.$route.query.id
+3. params传参
+ this.$router.push({name:'home',params: {id:'1'}}) // 只能用 name
+  
+// 路由配置 path: "/home/:id" 或者 path: "/home:id" ,
+// 不配置path ,第一次可请求,刷新页面id会消失
+// 配置path,刷新页面id会保留
+// html 取参 $route.params.id
+// script 取参 this.$route.params.id
+4. query和params区别
+query类似 get, 跳转之后页面 url后面会拼接参数,类似?id=1, 非重要性的可以这样传, 密码之类还是用params刷新页面id还在
+ params类似 post, 跳转之后页面 url后面不会拼接参数 , 但是刷新页面id 会消失
+```
+##### 3.  this.$router.replace() (用法同上,push)
+
+##### 4.  this.$router.go(n) ()
+this.$router.go(n)
+向前或者向后跳转n个页面，n可为正整数或负整数
+##### 区别：
+this.$router.push
+
+跳转到指定url路径，并想history栈中添加一个记录，点击后退会返回到上一个页面
+
+this.$router.replace
+
+跳转到指定url路径，但是history栈中不会有记录，点击返回会跳转到上上个页面 (就是直接替换了当前页面)
+
+this.$router.go(n)
+
+向前或者向后跳转n个页面，n可为正整数或负整数
 
 
 
