@@ -129,8 +129,21 @@ react-router-redux : 结合redux来配置路由，已废弃，不推荐使用。
 //一般用法:
 <Link to='/home'>Home</Link>//to作为字符串
 
-//to作为一个对象,包含以下四个属性
+//to作为一个对象,包含以下四个属性，传递参数
  <Link to={{pathname:'/home',search:'?sort=name',hash:'#edit',state:{a:1}}}>Home</Link>
+
+ <Link to={
+        {
+          pathname:`/要跳转的路径`,
+          state:{key值：val值}
+        }
+      }>
+
+ //在跳转页面接收
+ componentWillMount(){
+     //console.log(this.props.location)//传递过来的所有参数
+     console.log(this.props.location.state.key值)//val值
+ }
 ```
 
 ##### switch
