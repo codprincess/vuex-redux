@@ -15,5 +15,7 @@
     - [Vue插槽的理解](doc/深入理解vue中的slot与slot-scope.md)
     - [Vuex和redux的比较之Vuex](doc/vuex和redux的比较1.md)
     - [Vuex和redux的比较之Redux](doc/vuex和redux的比较2.md)
+    - [深入理解vue的slot类型和作用](doc/对vue路由的理解.md)
+    - [基于vue长列表处理](doc/基于vue的长列表处理.md)
 
 
