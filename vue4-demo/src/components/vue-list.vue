@@ -68,7 +68,7 @@ export default {
                this.displayCount = Math.floor(_scrollTop/this.height);
            }
 
-          //如果超过最大高度，则重置浏览列表
+          //如果超过最大高度，则重置浏览列表,删除和显示元素
           if(this.lastScrollTop === null || Math.abs(_scrollTop - this.lastScrollTop)>this._max){
               this.lastScrollTop = _scrollTop;
           }else{
@@ -78,7 +78,7 @@ export default {
               return;
           }
 
-          //
+          //开始截取数据
 
           let _from = parseInt(_scrollTop/this.height) - this._above;
           if(_from<0){
@@ -117,6 +117,7 @@ export default {
 
         },
 
+    //加载新数据
         loadmore(from,to){
             if(!this.canLoadmore) return;
             this.canLoadmore = false;
@@ -127,13 +128,16 @@ export default {
                         title:'item'+this.count++
                     })
                 }
+                //重新计算，这里还要处理加载回来的数据比below要求的还少的情况
                 let _from = from, _to = to + this._below;
+                // 重新计算previewList
                 this.resetPreviewList(_from, _to);
                 this.lineBottomHeight = (this.list.length - _to) * this.height;
                 this.handleScroll();
                 this.canLoadmore = true;
             },200)
         },
+        //计算出了from和to后，就可以获取新的列表数据了。
         resetPreviewList(from,to){
             //重置列表
             this.previewList = [];
