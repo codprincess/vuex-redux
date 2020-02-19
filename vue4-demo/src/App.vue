@@ -8,7 +8,7 @@
 
 <script>
 // import HelloWorld from './components/HelloWorld.vue'
-
+ window.COUNT = 1;
 export default {
   name: 'App',
   // components: {
