@@ -17,5 +17,6 @@
     - [Vuex和redux的比较之Redux](doc/vuex和redux的比较2.md)
     - [深入理解vue的slot类型和作用](doc/对vue路由的理解.md)
     - [基于vue长列表处理](doc/基于vue的长列表处理.md)
+    - [基于Vue的虚拟长列表2](doc/基于Vue的虚拟长列表.md)
 
 
